@@ -55,8 +55,9 @@ namespace parser
                 string sourceData = Console.ReadLine();
                 if (sourceData == "@") { break; }
 
-                string[] coordinates = sourceData.Split(',');
-                if (!CheckCountOfCoordinates(coordinates)) { continue; }
+                Parser.TryToConvert(sourceData);
+                   
+                if (Parser.)) { continue; }
                 if (!CheckForEmptyCoordinate(coordinates)) { continue; }
 
                 decimal[] FormatedCoordinates = new decimal[coordinates.Length];
@@ -81,44 +82,7 @@ namespace parser
         }
 
         
-        static bool CheckForEmptyCoordinate(string[] coordinates)
-        {
-            //check for an empty coordinate value, or consisting of spaces, with an error message
-            foreach (string coordinate in coordinates)
-            {
-                if (String.IsNullOrWhiteSpace(coordinate))
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Похоже, что одно из значений не задано");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        static bool CheckCountOfCoordinates(string[] coordinates)
-        {
-            //Checking that there were exactly 2 numbers in the line with warnings, otherwise
-            if (coordinates.Length < 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Похоже, что вы ввели меньше 2 координат");
-                Console.ForegroundColor = ConsoleColor.White;
-                return false;
-            }
-            else if (coordinates.Length > 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Похоже, что вы ввели больше 2 координат");
-                Console.ForegroundColor = ConsoleColor.White;
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        
 
 
 

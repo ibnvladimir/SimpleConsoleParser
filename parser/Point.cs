@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace parser
 {
@@ -17,14 +18,16 @@ namespace parser
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("X: ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(CoordinateX);
+            Console.Write(CoordinateX.ToString(CultureInfo.CreateSpecificCulture("ru-RU")));
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(" | ");
             Console.Write("Y: ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(CoordinateY);
+            Console.WriteLine(CoordinateY.ToString(CultureInfo.CreateSpecificCulture("ru-RU")));
         }
+
+        
 
 
 
