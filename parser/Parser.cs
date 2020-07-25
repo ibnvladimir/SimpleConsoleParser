@@ -10,49 +10,66 @@ namespace parser
     class Parser
     {
 
-        private static string _exceptionMessage { get; set; }
-        private static bool _isParseSuccessful { internal get;  set; }
-        private static decimal _result { get; set; }
+        internal  string ExceptionMessage { get; private set; } = "";
+        internal  bool IsParseSuccessful { get; private set; } = true;
+        internal decimal[] Result { get; private set; } 
 
-        internal static void TryToConvert(string sourceData)
+        internal  void TryToConvert(string sourceData)
         {
             string[] coordinates = sourceData.Split(',');
-            CheckForEmptyCoordinate(coordinates);
-            CheckCountOfCoordinates(coordinates);
+            CheckCountOfCoordinates(coordinates.Length);            
+            if (IsParseSuccessful)
+            {
+                CheckForEmptyCoordinate(coordinates);
+            }
+            if (IsParseSuccessful)
+            {
+                TryToConvertToDecimal(coordinates);
+            }
+
         }
 
-        private static void CheckForEmptyCoordinate(string[] coordinates)
+        private  void CheckForEmptyCoordinate(string[] coordinates)
         {
             //check for an empty coordinate value, or consisting of spaces, with an error message
-            foreach (string coordinate in coordinates)
+            for (int i = 0; i < coordinates.Length; i++)
             {
-                if (String.IsNullOrWhiteSpace(coordinate))
+                if (String.IsNullOrWhiteSpace(coordinates[i]))
                 {
-                    _exceptionMessage = "Похоже, что одно из значений не задано; ";
-                    _isParseSuccessful = false;
+                    ExceptionMessage += $"Похоже, что {i + 1}-е значение не задано; ";
+                    IsParseSuccessful = false;
                 }
             }
-            _isParseSuccessful = true;
         }
 
-        private static void CheckCountOfCoordinates(string[] coordinates)
+        private  void CheckCountOfCoordinates(int coordinatesCount)
         {
             //Checking that there were exactly 2 numbers in the line with warnings, otherwise
-            if (coordinates.Length < 2)
+            if (coordinatesCount != 2)
             {
-                _exceptionMessage += "Похоже, что вы ввели меньше 2 координат; ";
-                _isParseSuccessful = false;
-            }
-            else if (coordinates.Length > 2)
-            {               
-                Console.WriteLine("Похоже, что вы ввели больше 2 координат");
-                _isParseSuccessful = false;
-            }
-            else
-            {
-                _isParseSuccessful = true;
+                ExceptionMessage += $"Вы вели {coordinatesCount} координат, требуется 2; ";
+                IsParseSuccessful = false;
             }
         }
+
+        private  void TryToConvertToDecimal(string[] coordinates)
+        {
+            Result = new decimal[coordinates.Length];
+            for (int i = 0; i < coordinates.Length; i++)
+            {
+                try
+                {
+                    Result[i] = decimal.Parse(coordinates[i]);
+                }
+                catch (FormatException)
+                {
+                    ExceptionMessage += $"Неверный формат {i + 1} координаты; ";
+                    IsParseSuccessful = false;
+                }
+            }
+        }
+
+
 
     }
 }

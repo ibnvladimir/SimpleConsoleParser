@@ -47,42 +47,31 @@ namespace parser
         {
             while (true)
             {
-                DataInput:
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Введите данные или @ для выхода в меню");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("> ");
                 string sourceData = Console.ReadLine();
-                if (sourceData == "@") { break; }
+                if (sourceData == "@" ) { break; }
+                if (sourceData == "") { continue; }
 
-                Parser.TryToConvert(sourceData);
-                   
-                if (Parser.)) { continue; }
-                if (!CheckForEmptyCoordinate(coordinates)) { continue; }
-
-                decimal[] FormatedCoordinates = new decimal[coordinates.Length];
-                for (int i = 0; i < coordinates.Length; i++)
+                    var parser = new Parser();
+                parser.TryToConvert(sourceData);
+                if (!parser.IsParseSuccessful)
                 {
-                    try
-                    {
-                        FormatedCoordinates[i] = decimal.Parse(coordinates[i]);
-                    }
-                    catch (FormatException)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Неверный формат координаты");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        goto DataInput;
-                    }
-                }
-                Point point = new Point(FormatedCoordinates[0], FormatedCoordinates[1]);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(parser.ExceptionMessage);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    continue;
+                }                
+                Point point = new Point(parser.Result[0], parser.Result[1]);
                 point.PrintCordinateToConsole();
             }
 
         }
 
-        
-        
+
+
 
 
 
