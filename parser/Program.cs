@@ -27,7 +27,7 @@ namespace parser
                 switch (switcher)
                 {
                     case "1":
-                        ManualInput();
+                        ManualInputWriteToConsole();
                         break;
                     case "0":
                         return;
@@ -43,7 +43,7 @@ namespace parser
 
         }
 
-        static void ManualInput()
+        static void ManualInputWriteToConsole()
         {
             while (true)
             {
@@ -55,7 +55,7 @@ namespace parser
                 if (sourceData == "@" ) { break; }
                 if (sourceData == "") { continue; }
 
-                    var parser = new Parser();
+                var parser = new Parser();
                 parser.TryToConvert(sourceData);
                 if (!parser.IsParseSuccessful)
                 {
@@ -70,31 +70,6 @@ namespace parser
 
         }
 
-
-
-
-
-
-
-
-
-        //Console.ForegroundColor = ConsoleColor.Red;
-        //Console.BackgroundColor = ConsoleColor.Yellow;
-        //Console.WriteLine("Вычисления c и s круга");
-        //Console.WriteLine("");
-        //Console.ForegroundColor = ConsoleColor.Yellow;
-        //Console.BackgroundColor = ConsoleColor.Black;
-        //Console.Write("Введите радиус > ");
-        //double r = Convert.ToDouble(Console.ReadLine());
-        ////длина окружности:
-        //double c = 2 * Math.PI * r;
-        ////площадь круга:
-        //double s = Math.PI * r * r;
-        ////округляем значения:
-        //c = Math.Round(c, 2);
-        //s = Math.Round(s, 2);
-        ////печатаем результаты вычислений в консольном окне:
-        //Console.ForegroundColor = ConsoleColor.Green;
     }
 
 }
