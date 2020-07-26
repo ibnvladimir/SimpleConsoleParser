@@ -63,7 +63,6 @@ namespace parser
                 Point point = new Point(parser.Result[0], parser.Result[1]);
                 point.PrintCordinateToConsole();
             }
-
         }
     }
 }
