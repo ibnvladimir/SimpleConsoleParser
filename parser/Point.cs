@@ -27,7 +27,15 @@ namespace parser
             Console.WriteLine(CoordinateY.ToString(CultureInfo.CreateSpecificCulture("ru-RU")));
         }
 
-        
+        internal void PrintCordinateToFile(string sourceFileAddress)
+        {
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(sourceFileAddress, true);
+            writer.WriteLine($"X: {CoordinateX} | Y: {CoordinateY}");
+            writer.Close();
+        }
+
+
+
 
 
 
