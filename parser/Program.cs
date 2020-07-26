@@ -11,9 +11,6 @@ namespace parser
     {
         static void Main(string[] args)
         {
-            //    //23.8976,12.3218
-            //    //25.76,11.9463
-            //    //24.8293,12.67
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -40,7 +37,6 @@ namespace parser
                         break;
                 }
             }
-
         }
 
         static void ManualInputWriteToConsole()
@@ -69,8 +65,6 @@ namespace parser
             }
 
         }
-
     }
-
 }
 
