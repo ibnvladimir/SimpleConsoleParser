@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace parser
+namespace ConsoleParser
 {
     internal class Point
     {

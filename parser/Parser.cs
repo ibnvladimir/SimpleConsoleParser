@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace parser
+namespace ConsoleParser
 {
     class Parser
     {
@@ -52,7 +52,7 @@ namespace parser
             }
         }
 
-        private  void TryToConvertToDecimal(string[] coordinates)
+        internal void TryToConvertToDecimal(string[] coordinates)
         {
             Result = new decimal[coordinates.Length];
             for (int i = 0; i < coordinates.Length; i++)
