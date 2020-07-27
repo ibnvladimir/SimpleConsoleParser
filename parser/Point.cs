@@ -33,13 +33,5 @@ namespace ConsoleParser
             writer.WriteLine($"X: {CoordinateX} | Y: {CoordinateY}");
             writer.Close();
         }
-
-
-
-
-
-
-
-
     }
 }

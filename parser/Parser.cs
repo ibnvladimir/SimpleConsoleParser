@@ -1,15 +1,9 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleParser
 {
     class Parser
     {
-
         internal  string ExceptionMessage { get; private set; } = "";
         internal  bool IsParseSuccessful { get; private set; } = true;
         internal decimal[] Result { get; private set; } 
@@ -26,7 +20,6 @@ namespace ConsoleParser
             {
                 TryToConvertToDecimal(coordinates);
             }
-
         }
 
         private  void CheckForEmptyCoordinate(string[] coordinates)
