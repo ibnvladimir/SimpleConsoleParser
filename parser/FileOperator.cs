@@ -15,6 +15,7 @@ namespace ConsoleParser
             Console.WriteLine("Введите адрес файла с исходными данными или @ для выхода в меню:");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("> ");
+            
             SourceFileAddress = Console.ReadLine();
             if (SourceFileAddress == "@") 
             {
