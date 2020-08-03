@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleParser
 {
@@ -19,6 +15,7 @@ namespace ConsoleParser
             Console.WriteLine("Введите адрес файла с исходными данными или @ для выхода в меню:");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("> ");
+            
             SourceFileAddress = Console.ReadLine();
             if (SourceFileAddress == "@") 
             {
@@ -100,14 +97,8 @@ namespace ConsoleParser
                                 break;
                         }
                     }
-
                 }
             }
-        }
-
-
-
-
-        
+        }        
     }
 }

@@ -29,17 +29,11 @@ namespace ConsoleParser
 
         internal void PrintCordinateToFile(string sourceFileAddress)
         {
+            string x = CoordinateX.ToString(CultureInfo.CreateSpecificCulture("ru-RU"));
+            string y = CoordinateY.ToString(CultureInfo.CreateSpecificCulture("ru-RU"));
             System.IO.StreamWriter writer = new System.IO.StreamWriter(sourceFileAddress, true);
-            writer.WriteLine($"X: {CoordinateX} | Y: {CoordinateY}");
+            writer.WriteLine($"X: {x} | Y: {y}");
             writer.Close();
         }
-
-
-
-
-
-
-
-
     }
 }

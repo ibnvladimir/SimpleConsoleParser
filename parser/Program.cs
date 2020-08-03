@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleParser
 {
     class Program
-    {
-        
+    {        
         static void Main(string[] args)//finish
         {
             while (true)
@@ -122,14 +117,13 @@ namespace ConsoleParser
                     point.PrintCordinateToConsole();
                 }
             }
-
         }
+
         static void ManualInput_WriteToFile()//finish
         {
             FileOperator fileOperator = new FileOperator();
             fileOperator.TryToGetResultFile();
             if (fileOperator.IsBreakOperation) { return; }
-
 
             while (true)
             {
@@ -152,13 +146,8 @@ namespace ConsoleParser
                 }
                 Point point = new Point(parser.Result[0], parser.Result[1]);
                 point.PrintCordinateToFile(fileOperator.ResultFileAddress);
-            }
-                
-           
+            }   
         }
-
-        
-
     }
 }
 
