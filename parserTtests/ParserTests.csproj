@@ -51,11 +51,16 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GreatestCommonFactor_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GreatestCommonFactor\GreatestCommonFactor.csproj">
+      <Project>{59370f1a-8819-4f07-a434-98ea56ab99be}</Project>
+      <Name>GreatestCommonFactor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\parser\ConsoleParser.csproj">
       <Project>{3bf84356-9826-4ecf-8da2-190d869c49d8}</Project>
       <Name>ConsoleParser</Name>
