@@ -49,16 +49,41 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqrtTest.cs" />
+    <Compile Include="IntToBinaries_Test.cs" />
+    <Compile Include="Triangle_Tests.cs" />
+    <Compile Include="Vector_Test.cs" />
+    <Compile Include="GreatestCommonFactor_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IntToBinaries\IntToBinaries.csproj">
+      <Project>{7eb38e31-252f-444b-b209-e9ac52b92402}</Project>
+      <Name>IntToBinaries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GreatestCommonFactor\GreatestCommonFactor.csproj">
+      <Project>{59370f1a-8819-4f07-a434-98ea56ab99be}</Project>
+      <Name>GreatestCommonFactor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\parser\ConsoleParser.csproj">
       <Project>{3bf84356-9826-4ecf-8da2-190d869c49d8}</Project>
       <Name>ConsoleParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sqrt\Sqrt.csproj">
+      <Project>{addb2609-ae33-4242-813a-d11370cd1b18}</Project>
+      <Name>Sqrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TriangleApp\TriangleApp.csproj">
+      <Project>{7f4842f5-c61d-4efc-8ffd-d83b4fc8224a}</Project>
+      <Name>TriangleApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vector\VectorOperations.csproj">
+      <Project>{545f62e5-7af9-4bd3-a699-f283d3772e8f}</Project>
+      <Name>VectorOperations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

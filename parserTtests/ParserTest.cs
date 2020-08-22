@@ -7,7 +7,7 @@ using ConsoleParser;
 namespace ParserTests
 {
     [TestClass]
-    public class UnitTest1
+    public class Parser_Tests
     {
         [TestMethod]
         public void TryToConvert_FirstIsEmpty()
@@ -84,13 +84,14 @@ namespace ParserTests
         {
             // Arrange
             Parser parser = new Parser();
-            string[] value = { "23.456" };
+            string[] value = { "23,456" };
 
             // Act
             parser.TryToConvertToDecimal(value);
 
             // Assert
-            Assert.AreEqual(parser.Result[0], 23.456m);
+            Assert.AreEqual(true, parser.IsParseSuccessful);
+            //Assert.AreEqual(23.456m, parser.Result[0]);
         }
     }
 }
