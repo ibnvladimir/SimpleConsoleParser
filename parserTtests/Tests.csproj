@@ -54,6 +54,7 @@
     <Compile Include="SqrtTest.cs" />
     <Compile Include="IntToBinaries_Test.cs" />
     <Compile Include="Triangle_Tests.cs" />
+    <Compile Include="Vector_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\TriangleApp\TriangleApp.csproj">
       <Project>{7f4842f5-c61d-4efc-8ffd-d83b4fc8224a}</Project>
       <Name>TriangleApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vector\VectorOperations.csproj">
+      <Project>{545f62e5-7af9-4bd3-a699-f283d3772e8f}</Project>
+      <Name>VectorOperations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

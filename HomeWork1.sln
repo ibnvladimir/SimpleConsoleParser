@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntToBinaries", "IntToBinar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqrt", "Sqrt\Sqrt.csproj", "{ADDB2609-AE33-4242-813A-D11370CD1B18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorOperations", "Vector\VectorOperations.csproj", "{545F62E5-7AF9-4BD3-A699-F283D3772E8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{ADDB2609-AE33-4242-813A-D11370CD1B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADDB2609-AE33-4242-813A-D11370CD1B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADDB2609-AE33-4242-813A-D11370CD1B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545F62E5-7AF9-4BD3-A699-F283D3772E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545F62E5-7AF9-4BD3-A699-F283D3772E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545F62E5-7AF9-4BD3-A699-F283D3772E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545F62E5-7AF9-4BD3-A699-F283D3772E8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
