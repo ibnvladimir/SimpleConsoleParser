@@ -55,6 +55,7 @@
     <Compile Include="IntToBinaries_Test.cs" />
     <Compile Include="Triangle_Tests.cs" />
     <Compile Include="Vector_Test.cs" />
+    <Compile Include="GreatestCommonFactor_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\IntToBinaries\IntToBinaries.csproj">
       <Project>{7eb38e31-252f-444b-b209-e9ac52b92402}</Project>
       <Name>IntToBinaries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GreatestCommonFactor\GreatestCommonFactor.csproj">
+      <Project>{59370f1a-8819-4f07-a434-98ea56ab99be}</Project>
+      <Name>GreatestCommonFactor</Name>
     </ProjectReference>
     <ProjectReference Include="..\parser\ConsoleParser.csproj">
       <Project>{3bf84356-9826-4ecf-8da2-190d869c49d8}</Project>
