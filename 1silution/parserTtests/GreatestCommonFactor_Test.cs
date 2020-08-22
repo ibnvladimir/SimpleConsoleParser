@@ -42,7 +42,7 @@ namespace parserTtests
 
             // Act
             var actualResult = gcf.Stein(5, 15);
-            var expectedResult = 5u;
+            var expectedResult = 5;
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);

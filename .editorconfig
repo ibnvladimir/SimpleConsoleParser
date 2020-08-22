@@ -1,4 +1,0 @@
-﻿[*.cs]
-
-# IDE0035: Обнаружен недостижимый код
-dotnet_diagnostic.IDE0035.severity = none
