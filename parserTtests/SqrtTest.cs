@@ -8,7 +8,7 @@ using Sqrt;
 namespace ParserTests
 {
     [TestClass]
-    public class UnitTest2
+    public class Sqrt_Tests
     {
         [TestMethod]
         public void Pow_Test()

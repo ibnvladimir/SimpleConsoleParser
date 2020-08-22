@@ -7,7 +7,7 @@ using ConsoleParser;
 namespace ParserTests
 {
     [TestClass]
-    public class UnitTest1
+    public class Parser_Tests
     {
         [TestMethod]
         public void TryToConvert_FirstIsEmpty()

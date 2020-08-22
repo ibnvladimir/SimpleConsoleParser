@@ -8,7 +8,7 @@ namespace parserTtests
 {
  
     [TestClass]
-    public class UnitTest2
+    public class IntToBinaries_Tests
     {
         [TestMethod]
         public void Test_ParseIntToBinaries()
