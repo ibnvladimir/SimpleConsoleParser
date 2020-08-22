@@ -50,14 +50,13 @@ namespace ConsoleParser
             Result = new decimal[coordinates.Length];
             for (int i = 0; i < coordinates.Length; i++)
             {
-                try
-                {
-                    Result[i] = decimal.Parse(coordinates[i]);
-                }
-                catch (FormatException)
+               
+                    IsParseSuccessful = decimal.TryParse(coordinates[i], out Result[i]);
+               
+                if (IsParseSuccessful)
                 {
                     ExceptionMessage += $"Неверный формат {i + 1} координаты; ";
-                    IsParseSuccessful = false;
+                    
                 }
             }
         }
