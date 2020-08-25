@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExceptionHandling
 {
@@ -15,23 +11,27 @@ namespace ExceptionHandling
         {
             while (true)
             {
-                Message.System("Приложение умеет производить следующие действия над 2-мя матрицами: ");
+                Message.System("Приложение умеет производить действия над 2-мя матрицами: ");
+                matrixA = CreateMatrix(true);
+                matrixB = CreateMatrix(false);
+                Message.System("Какое действие над матрицами будем производить?");
                 Message.System("1. Складывать");
                 Message.System("2. Вычитать");
                 Message.System("3. Умножать");
                 Message.System("Введите нужный пункт меню либо @ для выхода из программы");
 
                 var menuItem = Message.UserInput();
+                Console.WriteLine();
 
                 switch (menuItem)
                 {
                     case "@":
                         return;
                     case "1":
-                        AddMatrixes();
+                        AddMatrices();
                         break;
                     case "2":
-                        SubtructMatrix();
+                        SubtractMatrix();
                         break;
                     case "3":
                         MultipleMatrixes();
@@ -44,46 +44,77 @@ namespace ExceptionHandling
 
         }
 
+
         /// <summary>
-        /// объдиняет в одном методе создание сразу двух матриц
+        /// Складывает две матрицы и выводит результат на консоль
         /// </summary>
-        public static void CreateMatrices()
+        public static void AddMatrices()
         {
-            matrixA = CreateMatrix();
-            matrixB = CreateMatrix();
+            try
+            {
+                var resMatrix = MatrixMath.Add(matrixA, matrixB);
+                PrintMatrix(resMatrix);
+            }
+            catch (InvalidDimensionException ex)
+            {
+                Message.Error(ex.Message);
+                return;
+            }
+
         }
 
-        public static void AddMatrixes()
+        /// <summary>
+        /// Вычитает из матрицы А матрицу В и выводит результат на консоль
+        /// </summary>
+        public static void SubtractMatrix()
         {
-           CreateMatrices();
-
-        }
-
-
-        public static void SubtructMatrix()
-        {
-            CreateMatrices();
+            try
+            {
+                var resMatrix = MatrixMath.Subtract(matrixA, matrixB);
+                PrintMatrix(resMatrix);
+            }
+            catch (InvalidDimensionException ex)
+            {
+                Message.Error(ex.Message);
+                return;
+            }
         }
 
 
 
         /// <summary>
-        /// перемножает две матрицы и выводит результат на экран
+        /// перемножает две матрицы и выводит результат на консоль
         /// </summary>
         public static void MultipleMatrixes()
         {
-            CreateMatrices();
-            var resMatrix =  Matrix.Multiple(matrixA, matrixB);
-            
-                for (int i = 0; i < resMatrix.Dimension; i++)
+            try
+            {
+                var resMatrix = MatrixMath.Multiple(matrixA, matrixB);
+                PrintMatrix(resMatrix);
+            }
+            catch (InvalidDimensionException ex)
+            {
+                Message.Error(ex.Message);
+                return;
+            }
+        }
+        
+        
+        
+        /// <summary>
+        /// Выводит матрицу на консоль
+        /// </summary>
+        /// <param name="matrix"></param>
+        public static void PrintMatrix(Matrix matrix)
+        {
+            for (int i = 0; i < matrix.Width; i++)
+            {
+                for (int j = 0; j < matrix.Height; j++)
                 {
-                    for (int j = 0; j < resMatrix.Dimension; j++)
-                    {
-                        Console.Write(resMatrix[i, j].Value + "\t");
-                    }
-                    Console.WriteLine();
+                    Console.Write(matrix[i, j].Value + "\t");
                 }
-            
+                Console.WriteLine();
+            }
         }
 
 
@@ -93,11 +124,14 @@ namespace ExceptionHandling
         /// Возвращает размерность<br/>
         /// </summary>
         /// <returns></returns>
-        public static int GetMatrixDemension()
+        public static int GetMatrixDemension(bool demension)
         {
+            string dem;
+            dem = demension ? "столбцев" : "строк";
+            
             while (true)
             {
-                Message.System("Введите размерность  квадратной матрицы:");
+                Message.System($"Введите количество {dem} матрицы:");
                 var dimensionAsString = Message.UserInput();
 
                 var isSuccess = int.TryParse(dimensionAsString, out var quantity);
@@ -117,10 +151,12 @@ namespace ExceptionHandling
         /// <summary>
         /// Возвращает заполненную матрицу
         /// </summary>
-        public static Matrix CreateMatrix()
+        public static Matrix CreateMatrix(bool whitch)
         {
+            var w = whitch ? "A" : "B";
             while (true)
             {
+                Message.System($"Выберите вариант создания матрицы {w}. ");
                 Message.System("Введите:");
                 Message.System("0 - для создания нулевой матрицы");
                 Message.System("1 - для ввода значений матрицы");
@@ -129,9 +165,9 @@ namespace ExceptionHandling
                 switch (menuItem)
                 {
                     case "0":
-                        return Matrix.GetEmpty(GetMatrixDemension());
+                        return Matrix.GetEmpty(GetMatrixDemension(false), GetMatrixDemension(true));
                     case "1":
-                        return Matrix.FillMatrix(GetMatrixDemension());
+                        return Matrix.FillMatrix(GetMatrixDemension(false), GetMatrixDemension(true));
                     default:
                         Message.Error("Нет такого пункта меню! Повторите ввод.");
                         break;

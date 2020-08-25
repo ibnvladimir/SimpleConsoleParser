@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmptyMatrixException.cs" />
+    <Compile Include="InvalidDimensionException.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="MatrixMath.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
