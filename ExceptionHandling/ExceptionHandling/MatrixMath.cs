@@ -1,6 +1,6 @@
 ﻿namespace ExceptionHandling
 {
-    class MatrixMath
+    public class MatrixMath
     {
         /// <summary>
         /// Принимает две матрицы, складывает их и возвращает результат в виде матрицы.

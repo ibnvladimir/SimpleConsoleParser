@@ -1,10 +1,13 @@
-﻿namespace ExceptionHandling
+﻿using System.Collections.Generic;
+using System.Data.SqlTypes;
+
+namespace ExceptionHandling
 {
 
     /// <summary>
     /// Класс описывает ячейку матрицы, которая хранит в себе значение, но не расположение
     /// </summary>
-    class Cell
+    public class Cell
     {
         public int Value { get; set; }
     }
@@ -13,7 +16,7 @@
     /// <summary>
     /// Класс описывает матрицу, которая имеет ширину и высоту, а так же массив ячеек (Cell)
     /// </summary>
-    internal class Matrix
+    public class Matrix:INullable
     {
         public int Width { get; set; }
         public int Height { get; set; }
@@ -43,7 +46,28 @@
             }
         }
 
+        public override bool Equals(object o)
+        {
+            Matrix matrix0 = (Matrix)o;
+            if (matrix0 == null)
+            {
+                return false;
+            }
 
+            for (int i = 0; i < this.Width; i++)
+            {
+                for (int j = 0; j < this.Height; j++)
+                {
+                    var b = this[i, j].Value == matrix0[i,j].Value;
+                    if (!b)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
 
         /// <summary>
         /// Принимет высоту и ширину матрицы, возвращает матрицу заполненную нулями
@@ -96,5 +120,31 @@
             }
             return matrix;
         }
+
+        /// <summary>
+        /// Только для тестов!<br/>
+        /// Заполняет матрицу переданными значениями, количество значений должно быть равно произведению ширины на высоту
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="mass"></param>
+        /// <returns></returns>
+        public static Matrix FillForTests(int width, int height, List<int> mass)
+        {
+            var matrix = new Matrix(width, height);
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    matrix[i, j] = new Cell { Value = mass[0] };
+                    mass.Remove(mass[0]);
+                }
+            }
+
+            return matrix;
+        }
+
+        public bool IsNull { get; }
     }
 }
